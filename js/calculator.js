@@ -10,7 +10,7 @@
     var i=0;
 
     function display() {
-        if (operator === '') {
+        if (operator.value === '') {
             inputOne.value = this.innerHTML;
         } else {
             inputTwo.value = this.innerHTML;
