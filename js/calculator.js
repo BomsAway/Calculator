@@ -10,7 +10,7 @@
     var equals = document.getElementById('equals');
     var clear = document.getElementById('clear');
     var i;
-    var key = equals.event.which;
+    var decimal = document.getElementById('decimal');
 
 //-----------------------------------------
     function display() {
@@ -19,6 +19,10 @@
         } else {
             inputTwo.value = inputTwo.value + this.innerHTML;
         }
+        if (decimal == 1) {
+
+        }
+
     }
 
     for (i=0; i<numberedButtons.length; i++) {
@@ -51,10 +55,7 @@
             case "/":
                 if (+inputTwo.value === 0) {
                     clearing();
-                    var pwd = prompt("Enter the password. Hint: it's 'cantdivideby0'");
-                    if (pwd == 'cantdivideby0') {
-
-                    }
+                    alert("Can't divide by zero, silly.");
                 }
                 inputOne.value = +inputOne.value / +inputTwo.value;
                 break;
@@ -78,8 +79,6 @@
 //-------------------------------------------
     clear.addEventListener("click", clearing);
 
-    if (key === 13) {
-        total();
-    }
+
 
 })();
