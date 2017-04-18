@@ -9,7 +9,8 @@
     var inputTwo = document.getElementById('input-two');
     var equals = document.getElementById('equals');
     var clear = document.getElementById('clear');
-    var i=0;
+    var i;
+    var key = equals.event.which;
 
 //-----------------------------------------
     function display() {
@@ -33,12 +34,11 @@
     }
 //-----------------------------------------
     function total() {
+
         if (inputTwo.value === '') {
             alert('That, sir/madam, is the wrong format.');
-        }
-
-        if (+inputOne.value / +inputTwo.value && +inputTwo.value === 0) {
-            alert("You can't do that..THAT'S IMPOSSIBLE!");
+            inputOne.value = '';
+            operator.value = '';
         }
 
         switch (operator.value) {
@@ -49,20 +49,22 @@
                 inputOne.value = +inputOne.value - +inputTwo.value;
                 break;
             case "/":
+                if (+inputTwo.value === 0) {
+                    clearing();
+                    var pwd = prompt("Enter the password. Hint: it's 'cantdivideby0'");
+                    if (pwd == 'cantdivideby0') {
+
+                    }
+                }
                 inputOne.value = +inputOne.value / +inputTwo.value;
                 break;
             case "x":
                 inputOne.value = +inputOne.value * +inputTwo.value;
                 break;
-            default:
-                inputOne.value = '';
-                operator.value = '';
-;               inputTwo.value = '';
         }
 
-        if(inputOne.value)
-
         inputTwo.value = '';
+
     }
 
     equals.addEventListener("click", total);
@@ -71,9 +73,13 @@
         inputOne.value = '';
         operator.value = '';
         inputTwo.value = '';
-    }
 
+    }
+//-------------------------------------------
     clear.addEventListener("click", clearing);
 
+    if (key === 13) {
+        total();
+    }
 
 })();
