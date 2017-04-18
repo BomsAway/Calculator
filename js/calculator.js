@@ -11,6 +11,8 @@
     var clear = document.getElementById('clear');
     var i;
     var decimal = document.getElementById('decimal');
+    var percentage = document.getElementById('percent');
+    var signChange = document.getElementById('signchange');
 
 //-----------------------------------------
     function display() {
@@ -52,15 +54,15 @@
             case "-":
                 inputOne.value = +inputOne.value - +inputTwo.value;
                 break;
+            case "x":
+                inputOne.value = +inputOne.value * +inputTwo.value;
+                break;
             case "/":
                 if (+inputTwo.value === 0) {
                     clearing();
                     alert("Can't divide by zero, silly.");
                 }
                 inputOne.value = +inputOne.value / +inputTwo.value;
-                break;
-            case "x":
-                inputOne.value = +inputOne.value * +inputTwo.value;
                 break;
         }
 
@@ -76,9 +78,21 @@
         inputTwo.value = '';
 
     }
-//-------------------------------------------
+
     clear.addEventListener("click", clearing);
+//-------------------------------------------
+    function percent() {
+        inputOne.value = +inputOne.value / 100;
+    }
 
+    percentage.addEventListener("click", percent);
+//-------------------------------------------
+    function posNeg() {
+        if(inputOne.value >= 0 || inputTwo.value >= 0) {
+            inputOne.value = +inputOne.value * -1;
+        }
+    }
 
+    signChange.addEventListener("click", posNeg);
 
 })();
