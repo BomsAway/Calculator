@@ -33,25 +33,37 @@
     }
 //-----------------------------------------
     function total() {
-        switch () {
+        switch (operator.value) {
             case "+":
-                +inputOne.value + +inputTwo.value;
+                inputOne.value = +inputOne.value + +inputTwo.value;
                 break;
             case "-":
-                +inputOne.value - +inputTwo.value;
+                inputOne.value = +inputOne.value - +inputTwo.value;
                 break;
             case "/":
-                +inputOne.value / +inputTwo.value;
+                inputOne.value = +inputOne.value / +inputTwo.value;
                 break;
-            case "*":
-                +inputOne.value * +inputTwo.value;
+            case "x":
+                inputOne.value = +inputOne.value * +inputTwo.value;
                 break;
+            default:
+                inputOne.value = '';
+                operator.value = '';
+;               inputTwo.value = '';
         }
+
+        inputTwo.value = '';
     }
 
     equals.addEventListener("click", total);
-//-----------------------------------------
+//-------------------------------------------
+    function clearing() {
+        inputOne.value = '';
+        operator.value = '';
+        inputTwo.value = '';
+    }
 
+    clear.addEventListener("click", clearing);
 
 
 })();
