@@ -1,4 +1,17 @@
-#calculator {
-    margin: 50%, 0;
+#container {
+    padding-left: 20%
 }
+
+#calculator {
+    margin-top: 10%
+}
+
+.small-button {
+    background-color: #515151;
+    color: #00B4ff;
+    border: none;
+    margin: 1px 1px
+}
+
+.small-button:
 

@@ -33,6 +33,14 @@
     }
 //-----------------------------------------
     function total() {
+        if (inputTwo.value === '') {
+            alert('That, sir/madam, is the wrong format.');
+        }
+
+        if (+inputOne.value / +inputTwo.value && +inputTwo.value === 0) {
+            alert("You can't do that..THAT'S IMPOSSIBLE!");
+        }
+
         switch (operator.value) {
             case "+":
                 inputOne.value = +inputOne.value + +inputTwo.value;
@@ -51,6 +59,8 @@
                 operator.value = '';
 ;               inputTwo.value = '';
         }
+
+        if(inputOne.value)
 
         inputTwo.value = '';
     }
